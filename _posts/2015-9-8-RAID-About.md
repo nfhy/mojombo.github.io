@@ -23,12 +23,14 @@ excerpt: Raid的小总结
 
 ##RAID5
 -------------
-![alt text](https://raw.githubusercontent.com/nfhy/nfhy.github.io/master/images/raidAbout/raid5.png "RAID5")
+![alt text](https://raw.githubusercontent.com/nfhy/medias/master/images/raidAbout/raid5.png "RAID5")
+
 RAID5是一种储存性能、数据安全和存储成本兼顾的存储解决方案。每块硬盘有一个奇偶校验区，最少需要三块硬盘。对于阵列中的硬盘A、B、C，每个硬盘分三个区：A1、A2、A3、B1、B2、B3、C1、C2、C3,其中A3、B2、C1为奇偶校验区，A3=B3⊕C3，B2=A2⊕C2,C1=A1⊕B1，根据异或操作的特性，若a⊕b=c则a=b⊕c且b=a⊕c，当硬盘B故障时，只需计算B3=A3⊕C3、B1=A1⊕C1，B2=A2⊕C2即可完成数据恢复。可以理解为，当一块硬盘故障时，需要解n个一元一次异或方程进行数据恢复。
 
 ##RAID6
 -------------
-![alt text](https://raw.githubusercontent.com/nfhy/nfhy.github.io/master/images/raidAbout/raid6.png "RAID6")
+![alt text](https://raw.githubusercontent.com/nfhy/medias/master/images/raidAbout/raid6.png "RAID6")
+
 与RAID5类似，但每块硬盘有两个独立的校验区，最少需要四块硬盘。两个校验区PQ，P与RAID5类似，进行异或运算；Q需要应用场理论（Galois Filed伽罗华域，尝试去查询这方面的资料，但是要求数学专业知识，本人数学知识有限，文档读起来非常吃力，没有理解）。与RAID5类似，可以理解为当有两块硬盘故障时，需要解n个二元一次异或方程组进行数据恢复。
 
 ##RAID10
